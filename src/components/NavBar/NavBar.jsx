@@ -8,14 +8,14 @@ import {
   MenuItem,
   MenuGroup,
   MenuDivider,
-  Link as ChakraLink
+  Link as ChakraLink,
 } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Input } from "@chakra-ui/react";
 import { IoIosSearch } from "react-icons/io";
 import { Link } from "react-router-dom";
-import Logo from '../../assets/Logo/Logo.gif'
+import Logo from "../../assets/Logo/Logo.gif";
 
 const NavBar = () => {
   return (
@@ -35,7 +35,7 @@ const NavBar = () => {
         >
           Cuenta
         </MenuButton>
-        
+
         <MenuList>
           <MenuGroup>
             <MenuItem>Perfil</MenuItem>
@@ -50,7 +50,11 @@ const NavBar = () => {
         </MenuList>
       </Menu>
       <Menu>
-      <Heading fontSize={"xl"}><ChakraLink as={Link} to='/'><Img w={'50px'} borderRadius={'10px'} src={Logo}/></ChakraLink></Heading>
+        <Heading fontSize={"xl"}>
+          <ChakraLink as={Link} to="/">
+            <Img w={"50px"} borderRadius={"10px"} src={Logo} />
+          </ChakraLink>
+        </Heading>
         <MenuButton as={Button} colorScheme="blue" rightIcon={<IoIosSearch />}>
           Categorias
         </MenuButton>
@@ -76,9 +80,8 @@ const NavBar = () => {
           backgroundColor={"whitesmoke"}
         />
       </Flex>
-      <Link to='/Cart'>
+
       <CartWidget />
-      </Link>
     </Flex>
   );
 };

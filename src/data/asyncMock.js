@@ -73,29 +73,3 @@ export const productos = [
     img: "https://laverdadnoticias.com/img/2020/02/29/zapatos_de_rata_insolito.jpg?__scale=w:718,h:452,t:2,c:ecefef,q:95",
   },
 ];
-export const getProducts = () => {
-  return new Promise((res) => {
-    setTimeout(() => {
-      res(productos);
-    }, 2000);
-  });
-};
-export const getProductsByCategory = (category) => {
-  return new Promise((res) => {
-    const productosFiltrados = productos.filter(
-      (prod) => prod.categoria === category
-    );
-    setTimeout(() => {
-      res(productosFiltrados);
-    }, 2000);
-  });
-};
-
-export const getProductById = (id) => {
-  return new Promise((res) => {
-    const productoFiltrado = productos.find((prod) => prod.id === parseInt(id));
-    setTimeout(() => {
-      res(productoFiltrado);
-    }, 2000);
-  });
-};

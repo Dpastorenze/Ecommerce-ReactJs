@@ -1,8 +1,54 @@
-# React + Vite
+# tienda (titulo)
+## mas chico
+![image](/src/assets/Logo/Logo.gif)
+## 
+![image](/src/assets/Logo/FELIPE.jpg)
+### deploy
+copiar el codigo que deja vercel luego de import la rama de git
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### descripcion
 
-Currently, two official plugins are available:
+### construido
+react
+firebase
+### dependencias
+chakra 
+axios
+react icons
+router dom
+spinners
+toastify
+sweetalert2
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### instalacion
+# list
+- clonar repositorio 
+    - git clone (repositorio git)
+- Moverse a la carpeta 
+    - cd nombre carpeta ecommerce
+- instalar las dependencias
+    - npm install
+- compilar
+    - npm run dev  
+
+### estructura 
+#### navbar
+Logo
+menu de categorias 
+buscador especifico
+icono carrito 
+cuenta
+#### body
+listado productos
+detalles del producto
+
+#### navegacion
+enrutamiento entre vistas
+
+#### carrito
+vista en listado de las compras con detalles 
+
+#### checkout
+formulario para facturacion 
+
+#### Contacto

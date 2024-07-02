@@ -9,7 +9,7 @@ import { Heading } from "@chakra-ui/react";
 import { Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-const Item = ({ nombre, precio, img, id }) => {
+const Item = ({ nombre, precio, img, id,stock }) => {
   return (
     <Card maxW="sm" borderRadius="lg" overflow="hidden" boxShadow="md" >
       <CardBody>
@@ -19,8 +19,7 @@ const Item = ({ nombre, precio, img, id }) => {
           borderRadius="lg"
           align="center"
           objectFit="cover"
-          // w="100%"
-          // h="150px"
+       
           boxSize='200px'
                 />
         <Stack mt="6" spacing="4">
@@ -28,6 +27,9 @@ const Item = ({ nombre, precio, img, id }) => {
           <Text color="blue.600" fontSize="2xl">
             ${precio}
           </Text>
+          <Text fontSize='xl'  mt={1} m={0} color="blue.600">
+            Stock disponible: {stock}
+            </Text>
         </Stack>
       </CardBody>
       <Divider />

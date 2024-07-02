@@ -6,13 +6,17 @@ import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
+import { CartContextProvider } from "./context/CartContext";
 
-import { CartProvider } from "./components/CartContext/CartContext";
+import Cart from "./components/Cart/Cart";
+import Checkout from "./components/Checkout/Checkout";
+
+
 
 function App() {
   return (
     <ChakraProvider>
-      <CartProvider>
+      <CartContextProvider>
         <BrowserRouter>
           <NavBar />
           <Routes>
@@ -28,10 +32,12 @@ function App() {
               path="/producto/:productId"
               element={<ItemDetailContainer />}
             />
+            <Route path="/checkout" element={<Checkout/>}/>
             <Route path="*" element={<PageNotFound />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
         </BrowserRouter>
-      </CartProvider>
+      </CartContextProvider>
     </ChakraProvider>
   );
 }

@@ -1,30 +1,71 @@
-import React from 'react';
-import { useCart } from '../context/CartContext';
-import { Box, Heading, Text, Stack } from '@chakra-ui/react';
+import { Button, Flex, Table, TableContainer, Tbody, Td, Tfoot, Th, Thead, Tr } from '@chakra-ui/react'
+import React, { useContext } from 'react'
+import Context from '../../context/CartContext'
+import { TiDelete } from "react-icons/ti";
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
-  const { cart, removeFromCart } = useCart();
+  const {cart,removeItem,clearCart,incrementarItem,decrementarItem}=useContext(Context)
+  console.log('carrito',cart)
+  if(cart.length===0){
+    return(
+    <Flex direction={'column'} justify={'center'} align={'center'}>
+
+      <Link to='/'>Ver productos</Link>
+    </Flex>
+    )
+  }
+  
+  const total = cart.reduce((acc, prod) => acc + prod.precio * prod.quantity, 0);
 
   return (
-    <Box p="4">
-      <Heading>Carrito de Compras</Heading>
-      {cart.length === 0 ? (
-        <Text mt="4">Tu carrito está vacío</Text>
-      ) : (
-        <Stack mt="4" spacing="4">
-          {cart.map((product) => (
-            <Box key={product.id} p="4" borderWidth="1px" borderRadius="lg">
-              <Text fontSize="xl">{product.nombre}</Text>
-              <Text color="blue.600" fontSize="2xl">{product.precio}</Text>
-              <Button mt="2" colorScheme="red" onClick={() => removeFromCart(product.id)}>
-                Eliminar
-              </Button>
-            </Box>
+    <TableContainer>
+      <Table variant="simple">
+        
+        <Thead>
+          <Tr>
+            <Th>Nombre</Th>
+            <Th>Cantidad</Th>
+            <Th></Th>
+            <Th>Precio</Th>
+            <Th>Subtotal</Th>
+            <Th></Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          { cart.map ((prod) => (
+            <Tr key={prod.id}>
+              <Td>{prod.nombre}</Td>
+              <Td>{prod.quantity}  </Td>
+              <Td>
+                <Button onClick={()=>decrementarItem(prod.id)}>-</Button>
+                {prod.quantity}
+                <Button onClick={()=>incrementarItem(prod.id,prod.stock)}>+</Button>
+                {prod.quantity}
+              </Td>
+              <Td>{prod.precio}</Td>
+                <Td>{prod.precio * prod.quantity }</Td>
+                <Td><Button onClick={()=>removeItem(prod.id)}>
+                <TiDelete />  
+                  </Button></Td>
+            </Tr>
           ))}
-        </Stack>
-      )}
-    </Box>
+        </Tbody>
+        <Tfoot>
+          <Tr>
+            <Th colSpan={3}>Total</Th>
+            <Th>{total}</Th>
+            <Th>
+              <Button colorScheme="red" onClick={clearCart}>
+                Vaciar Carrito
+              </Button>
+              </Th>
+              <Th><Link to='/Checkout'>Finalizar compra</Link></Th>
+          </Tr>
+        </Tfoot>
+      </Table>
+    </TableContainer>
   );
 };
 
-export default Cart;
+export default Cart
