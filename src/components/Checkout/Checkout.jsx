@@ -65,8 +65,15 @@ const Checkout = () => {
     if (!validateForm()) {
       return;
     }
-if(cart.length==0){
-  console.log('no agregaste nada al carrito');
+if(cart.length===0){
+  Swal.fire({
+    title: "Su carrito esta vacio",
+    text: 'No podemos generar una orden con el carrito vacio',
+    icon: "error",
+    confirmButtonText: "Sigamos",
+  }) .then((result) => {
+    navigate("/");
+  });
   return
 }
 
@@ -84,7 +91,14 @@ if(cart.length==0){
             stock: currentStock - item.quantity,
           });
         } else {
-          console.log(`no hay stock suficiente ${item.nombre}`);
+          Swal.fire({
+            title: "Ups",
+            text: 'Lo sentimos nos quedamos sin stock,vuelva prontos',
+            icon: "info",
+            confirmButtonText: "Sigamos",
+          }) .then((result) => {
+            navigate("/");
+          });
           setLoading(false);
           return;
         }
