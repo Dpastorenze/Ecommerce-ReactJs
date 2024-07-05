@@ -19,7 +19,7 @@ const ItemCount = ({stock, valorInicial, onAdd}) => {
         <Heading fontSize={20} p={2}>{count}</Heading>
         <Button colorScheme='blue' onClick={incrementar}>+</Button>
         </Flex>
-        <Button onClick={() => onAdd(count)}>Agregar al carrito</Button>
+        <Button onClick={() => onAdd(count)} isDisabled={stock <= 0}>Agregar al carrito</Button>
         
     </Flex>
   )

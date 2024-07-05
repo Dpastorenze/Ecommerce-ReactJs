@@ -49,7 +49,7 @@ const ItemDetailContainer = () => {
           <FadeLoader color="#010005" />
         </Flex>
       ) : (
-        <ItemDetail {...producto} />
+        <ItemDetail {...producto} currentQuantity={currentQuantity(productId)}/>
       )}
     </>
   );

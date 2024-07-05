@@ -11,6 +11,9 @@ import { CartContextProvider } from "./context/CartContext";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
 
+import Purchase from "./components/Checkout/Purchase";
+import SearchResults from "./components/SearchResults/SearchResults";
+
 
 
 function App() {
@@ -35,6 +38,8 @@ function App() {
             <Route path="/checkout" element={<Checkout/>}/>
             <Route path="*" element={<PageNotFound />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/purchase" element={<Purchase/>}/>
+            <Route path="/search/:searchTerm" element={<SearchResults />} />
           </Routes>
         </BrowserRouter>
       </CartContextProvider>

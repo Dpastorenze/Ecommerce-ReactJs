@@ -4,72 +4,88 @@ const Context = createContext();
 
 export const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [directPurchase, setDirectPurchase] = useState(null);
 
-  const addItem = (productToAdd,quantity) => {
-    const newItem ={...productToAdd, quantity};
-    if(isInCart(newItem.id)){
-      const updatedCart=cart.map((prod)=>{
-        if(prod.id===newItem.id){
-          return {...prod,quantity:prod.quantity+newItem.quantity};
+
+  const addItem = (productToAdd, quantity) => {
+    const newItem = { ...productToAdd, quantity };
+    if (isInCart(newItem.id)) {
+      const updatedCart = cart.map((prod) => {
+        if (prod.id === newItem.id) {
+          return { ...prod, quantity: prod.quantity + newItem.quantity };
         }
-        return prod
+        return prod;
       });
-        setCart(updatedCart);
-    }else{
-
-    
-    setCart([...cart,newItem]);
+      setCart(updatedCart);
+    } else {
+      setCart([...cart, newItem]);
     }
-  }
-  
-  const isInCart=(id)=>{
-    return cart.some((prod)=>prod.id===id);
-  }
+  };
+
+  const isInCart = (id) => {
+    return cart.some((prod) => prod.id === id);
+  };
   const removeItem = (id) => {
-    const updatedCart=cart.filter((prod)=>prod.id !== id);
+    const updatedCart = cart.filter((prod) => prod.id !== id);
 
     setCart([...updatedCart]);
   };
-  const clearCart=()=>{
-    setCart([])
-  }
-  const getTotal=()=> {
-    return cart.reduce((acc,item)=>acc+item.quantity,0)
-  }
+  const clearCart = () => {
+    setCart([]);
+  };
+  const getTotal = () => {
+    return cart.reduce((acc, item) => acc + item.quantity, 0);
+  };
 
-  const getQuantity=()=>{
-    return cart.reduce((acc,prod)=>acc+prod.quantity,0)
-  }
-  const decrementarItem=(id)=> {
-    const updatedCart=cart.map((prod)=>{
-      if(prod.id===id){
-        const newQuantity=Math.max(prod.quantity - 1,1)
-        return {...prod,quantity:newQuantity}
-
+  const getQuantity = () => {
+    return cart.reduce((acc, prod) => acc + prod.quantity, 0);
+  };
+  const decrementarItem = (id) => {
+    const updatedCart = cart.map((prod) => {
+      if (prod.id === id) {
+        const newQuantity = Math.max(prod.quantity - 1, 1);
+        return { ...prod, quantity: newQuantity };
       }
-      return prod
-    })
-    setCart(updatedCart)
-  }
-  const incrementaItem=(id,stock)=> {
-    const updatedCart=cart.map((prod)=>{
-      if(prod.id===id){
-        const newQuantity=Math.min(prod.quantity + 1,stock)
-        return {...prod,quantity:newQuantity}
-
+      return prod;
+    });
+    setCart(updatedCart);
+  };
+  const incrementarItem = (id, stock) => {
+    const updatedCart = cart.map((prod) => {
+      if (prod.id === id) {
+        const newQuantity = Math.min(prod.quantity + 1, stock);
+        return { ...prod, quantity: newQuantity };
       }
-      return prod
-    })
-    setCart(updatedCart)
-  }
-  const currentQuantity=(id)=>{
-    const prod=cart.find((item)=>item.id===id)
-    return prod ? prod.quantity : 0
-  }
+      return prod;
+    });
+    setCart(updatedCart);
+  };
+  const currentQuantity = (id) => {
+    const prod = cart.find((item) => item.id === id);
+    return prod ? prod.quantity : 0;
+  };
 
+  const addDirectPurchase = (item, quantity) => {
+    setDirectPurchase({ item, quantity });
+  }; 
+  
   
   return (
-    <Context.Provider value={{ cart, addItem,setCart,removeItem,clearCart,getQuantity,getTotal,decrementarItem,incrementaItem,currentQuantity}}>
+    <Context.Provider
+      value={{
+        cart,
+        addItem,
+        setCart,
+        removeItem,
+        clearCart,
+        getQuantity,
+        getTotal,
+        decrementarItem,
+        incrementarItem,
+        currentQuantity,
+        addDirectPurchase, directPurchase, setDirectPurchase
+      }}
+    >
       {children}
     </Context.Provider>
   );
