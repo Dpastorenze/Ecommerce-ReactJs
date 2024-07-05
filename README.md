@@ -3,7 +3,7 @@
 ## DEMO
 ![image](/src/assets/Logo/Logo.gif)
 ## 
-![image](src/assets/Logo/demo.gif)
+![image](src/assets/Logo/demostracion.gif)
 ### DEPLOY
 
 https://ecommerce-react-js-sigma.vercel.app/
