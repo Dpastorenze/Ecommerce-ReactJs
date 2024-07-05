@@ -1,4 +1,4 @@
-import React, { Profiler, useState } from "react";
+import React, { useState } from "react";
 import CartWidget from "../CartWidget/CartWidget";
 import { Flex, Heading, Img } from "@chakra-ui/react";
 import {
@@ -6,8 +6,6 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuGroup,
-  MenuDivider,
   Link as ChakraLink,
 } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
@@ -17,8 +15,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/Logo/Logo.gif";
 
 const NavBar = () => {
-
-
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 

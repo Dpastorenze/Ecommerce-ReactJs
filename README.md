@@ -1,8 +1,8 @@
 # Bienvenidos al ecommerce para todos NoLoQuieroLoNecesito
-## Demo
+## DEMO
 ![image](/src/assets/Logo/Logo.gif)
 ## 
-![image](/src/assets/Logo/FELIPE.jpg)
+![image](src/assets/Logo/Demo.gif)
 ### DEPLOY
 copiar el codigo que deja vercel luego de import la rama de git
 

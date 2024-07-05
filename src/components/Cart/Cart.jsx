@@ -2,13 +2,13 @@ import { Button, Flex, Heading, Table, TableContainer, Tbody, Td, Tfoot, Th, The
 import React, { useContext } from 'react'
 import Context from '../../context/CartContext'
 import { TiDelete } from "react-icons/ti";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 
 const Cart = () => {
   const {cart,removeItem,clearCart,incrementarItem,decrementarItem}=useContext(Context)
-  const navigate = useNavigate();
+  
   
   if(cart.length===0){
     Swal.fire({

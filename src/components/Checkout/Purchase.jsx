@@ -32,9 +32,9 @@
     });
     const [error, setError] = useState({});
     const [loading, setLoading] = useState(false);
-    const { directPurchase, setDirectPurchase } = useContext(Context); // compra directa
-    const [products, setProducts] = useState([]); // compra directa
-    const { cart, getTotal, clearCart } = useContext(Context);
+    const { directPurchase, setDirectPurchase } = useContext(Context);
+    const [products, setProducts] = useState([]);
+    const { cart, clearCart } = useContext(Context);
     const navigate = useNavigate();
 
     useEffect(() => {

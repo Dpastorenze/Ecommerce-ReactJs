@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import {
   FormControl,
   FormLabel,
@@ -25,19 +25,9 @@ const Checkout = () => {
   });
   const [error, setError] = useState({});
   const [loading, setLoading] = useState(false);
-  // const { directPurchase, setDirectPurchase } = useContext(Context);//compra directa
-  // const [products, setProducts] = useState([]); //compra directa
+
   const { cart, getTotal, clearCart } = useContext(Context);
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   if (directPurchase) {
-  //     setProducts([directPurchase]);
-  //     setDirectPurchase(null);
-  //   } else {
-  //     setProducts(cart);
-  //   }
-  // }, [cart, directPurchase, setDirectPurchase]); // compra directa
 
   const updateUser = (event) => {
     setUser((user) => ({

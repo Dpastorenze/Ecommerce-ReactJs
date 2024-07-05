@@ -7,10 +7,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 import { CartContextProvider } from "./context/CartContext";
-
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
-
 import Purchase from "./components/Checkout/Purchase";
 import SearchResults from "./components/SearchResults/SearchResults";
 
