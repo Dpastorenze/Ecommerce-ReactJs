@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../Config/Firebase"; 
 import { Box, Card, CardBody, CardFooter, Divider, Flex, Heading, Image, Stack, Text, Button } from "@chakra-ui/react";
@@ -9,6 +9,7 @@ const SearchResults = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate=useNavigate()
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -68,8 +69,12 @@ const SearchResults = () => {
               </CardBody>
               <Divider />
               <CardFooter>
-                <Button variant="solid" colorScheme="blue">
-                  <Link to={`/producto/${product.id}`}>Ver Detalle</Link>
+              <Button 
+                  variant="solid" 
+                  colorScheme="blue" 
+                  onClick={() => navigate(`/producto/${product.id}`)}
+                >
+                  Ver Detalle
                 </Button>
               </CardFooter>
             </Card>

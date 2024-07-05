@@ -42,6 +42,7 @@ const ItemDetailContainer = () => {
     getData();
   }, [productId, navigate]);
 
+
   return (
     <>
       {loading ? (

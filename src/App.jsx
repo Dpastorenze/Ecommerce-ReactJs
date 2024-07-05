@@ -16,6 +16,8 @@ import SearchResults from "./components/SearchResults/SearchResults";
 
 
 
+
+
 function App() {
   return (
     <ChakraProvider>
@@ -40,6 +42,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/purchase" element={<Purchase/>}/>
             <Route path="/search/:searchTerm" element={<SearchResults />} />
+
           </Routes>
         </BrowserRouter>
       </CartContextProvider>
