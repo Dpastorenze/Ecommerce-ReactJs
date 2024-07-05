@@ -1,24 +1,26 @@
-# Bienvenidos al ecommerce para todos NoLoQuieroLoNecesito
+# Bienvenidos a..
+# > NoLoQuieroLoNecesito <
 ## DEMO
 ![image](/src/assets/Logo/Logo.gif)
 ## 
 ![image](src/assets/Logo/Demo.gif)
 ### DEPLOY
-copiar el codigo que deja vercel luego de import la rama de git
+
+https://ecommerce-react-js-sigma.vercel.app/
 
 ### Descipcion
 
 ### Construcciòn
-react
-firebase
+React
+Firebase
 ### Dependencias
-chakra 
-axios
-react icons
-router dom
-spinners
-toastify
-sweetalert2
+Chakra UI 
+Axios
+React icons
+Router dom
+Spinners
+Toastify
+SweetAlert2
 
 ### INSTALACIÒN
 # Pasos a seguir
@@ -34,22 +36,24 @@ sweetalert2
 ### Estructura 
 #### Navbar
 Logo
-menu de categorias 
-buscador especifico
-icono carrito 
-cuenta
+Menu de categorias 
+Buscador especifico
+Icono carrito 
+
 #### Body
-listado productos
-detalles del producto
+Listado productos
+Detalles del producto
 
 #### Navegacion
-enrutamiento entre vistas
+Enrutamiento entre vistas
 
 #### Carrito
-vista en listado de las compras con detalles 
+Vista en listado de las compras con detalles 
 
 #### Checkout
-formulario para facturacion 
+Formulario para facturacion 
 
 #### Contacto
 www.linkedin.com/in/damian-pastorenze-290644268
+
+## Gracias Vuelva Prontos
